@@ -1,15 +1,79 @@
+body {
+  margin-top: 25px;
+  background: 
+  radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.header {
+  font-size: 50px;
+  font-weight: bolder;
+  font-family: 'Courier New', Courier, monospace;
+  color: rgb(255, 18, 235);
+}
+
+.sketch-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px 15px;
+  border: 2px solid;
+  border-radius: 10px;
+}
+
+#grid-dimensions, #eraser, #clear {
+  background: 
+  linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(124,124,124,1) 100%);
+}
+
+#random {
+  background: 
+  linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(0,255,0,1) 50%, rgba(0,0,255,1) 100%);
+}
+
+#red {
+  background: 
+  linear-gradient(90deg, rgba(255,157,157,1) 0%, rgba(175,1,1,1) 100%);
+}
+
+#green {
+  background: 
+  linear-gradient(90deg, rgba(164,255,157,1) 0%, rgba(2,175,1,1) 100%);
+}
+
+#blue {
+  background: 
+  linear-gradient(90deg, rgba(157,173,255,1) 0%, rgba(1,27,175,1) 100%);
+}
+
+button:hover {
+  filter: brightness(85%);
+}
+
 .sketchpad {
-  background-color: red;
-  width: 800px;
-  height: 800px;
+  background-color: white;
+  border: 2px solid black;
+  width: 750px;
+  height: 750px;
   display: flex;
   flex-wrap: wrap;
 }
 
 .square {
   box-sizing: border-box;
-  width: 50px;
-  height: 50px;
-  color: red;
   border: 1px solid black;
 }
