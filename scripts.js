@@ -5,10 +5,11 @@ const sketchpadDimensions = 750;
 const sketchpad = document.querySelector('.sketchpad');
 const buttons = document.querySelectorAll('button');
 
-function createGrid(dimensions = 10)
+function createGrid(dimensions = 10) // Set default dimensions to 10 prior to user decision
 {
   let squareSize = (sketchpadDimensions / dimensions);
 
+  // Create square to fill the dimensions; CSS will make the squares wrap when they reach the end of the pad
   for(let i = 0; i < Math.pow(dimensions, 2); i++)
   {
     const square = document.createElement('div');
@@ -19,18 +20,19 @@ function createGrid(dimensions = 10)
     sketchpad.appendChild(square);
   }
 
+  // Select and listen for events on the created squares
   const squares = document.querySelectorAll('.square');
   squares.forEach(square => {
     square.addEventListener('mouseover', div => drawSquare(div));
   })
 }
 
-createGrid();
-
 const setDimensions = function()
 {
+  // Clear sketchpad
   sketchpad.innerHTML = '';
 
+  // Repeat till user enters valid dimensions
   do
   {
     dimensions = parseInt(prompt("Enter dimensions [1 - 100]"));
@@ -73,6 +75,7 @@ const clearPad = function()
   createGrid(dimensions);
 }
 
+// Assign relevant functions to based on each button id
 const actions = 
 {
   'grid-dimensions': setDimensions,
@@ -88,6 +91,7 @@ function determineAction(button)
 {
   let choice = button.currentTarget.getAttribute('id');
 
+  // Use the button id to call the relevant function, passing arguments if needed
   if(choice == 'grid-dimensions' || choice == 'clear')
     actions[choice]();
   else
@@ -98,5 +102,5 @@ buttons.forEach(button => {
   button.addEventListener('click', (btn) => determineAction(btn));
 });
 
-//(e) => determineAction(e)
-//() => setDimensions()
+// Create default starting grid
+createGrid();
